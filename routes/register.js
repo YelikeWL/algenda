@@ -12,6 +12,7 @@ router.get('/', authentication.checkNotAuthenticated, (req, res) => {
 router.post('/', authentication.checkNotAuthenticated, async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        // To change when we update with database
         users.push({
             id: Date.now().toString(),
             name: req.body.name,
