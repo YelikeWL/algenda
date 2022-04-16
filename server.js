@@ -24,7 +24,7 @@ initializePassport(
 const indexRouter = require('./routes/index')
 const loginRouter = require('./routes/login')
 const registerRouter = require('./routes/register')
-const userRouter = require('./router/user')
+const userRouter = require('./routes/user')
 
 // Database config (setup here)
 const users = [] 
