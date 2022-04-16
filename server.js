@@ -24,6 +24,7 @@ initializePassport(
 const indexRouter = require('./routes/index')
 const loginRouter = require('./routes/login')
 const registerRouter = require('./routes/register')
+const userRouter = require('./router/user')
 
 // Database config (setup here)
 const users = [] 
@@ -58,6 +59,7 @@ app.use(flash())
 app.use('/', indexRouter)
 app.use('/login', loginRouter)
 app.use('/register', registerRouter)
+app.use('/user', userRouter)
 
 // app.use(methodOverride('_method'))
 
