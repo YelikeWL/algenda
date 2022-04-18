@@ -27,7 +27,7 @@ const userSchema = new Schema({
     },
     date: {
         type: Date,
-        default: Date.now()
+        default: Date.now
     },
     verified: {
         type: Boolean,
@@ -35,9 +35,9 @@ const userSchema = new Schema({
     },
 })
 
-const User = mongoose.model("Users", userSchema);
+const User = mongoose.model('users', userSchema);
 
-const validate = (user) => {
+const validate = (User) => {
     const schema = Joi.object({
         name: Joi.string().min(3).max(255).required().label('Name'),
         email: Joi.string().email().required().label('Email'),
@@ -47,7 +47,7 @@ const validate = (user) => {
             .messages({ 'any.only': '{{#label}} does not match' })
     })
 
-    return schema.validate(user)
+    return schema.validate(User)
 }
 
 module.exports = {

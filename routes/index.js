@@ -4,7 +4,7 @@ const authentication = require('../modules/authentication')
 
 // Welcome page or Home page
 router.get('/', authentication.checkAuthenticated, (req, res) => {
-    res.render('index.ejs', { name: req.user.name })
+    res.render('index.ejs', { name: "Tim" })
 })
 
 module.exports = router
