@@ -11,8 +11,8 @@ router.get('/', authentication.checkNotAuthenticated, (req, res) => {
 })
 
 router.post('/', authentication.checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/index',
-    failureRedirect: '/',
+    successRedirect: '/',
+    failureRedirect: '/login',
     failureFlash: true
 }))
 
