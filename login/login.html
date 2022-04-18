@@ -1,45 +1,82 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<title> Login and Registration Form Design</title>
-	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial" />
+    <link rel="stylesheet" href="style.css">
+    <title>Login Page</title>
+
 </head>
 
 <body>
-	<div class="login-page">
-		<div class="form">
-			<form class="register-form">
-				<input type="text" placeholder="username" />
-				<input type="text" placeholder="password" />
-				<input type="text" placeholder="email ID" />
-				<button>Create</button>
-				<p class="message">Already Registered? <a href="#"> Login</a>
-				</p>
-			</form>
+    <div class="main">
+        <div class="container">
+            <div id="square">
+                <div class="front">
+                    <h1>Login</h1>
+                    <form action="#" method="post">
+                        <input required type="email" name="email" id="email" placeholder="Email" />
+                        <input required type="password" name="password" id="password" placeholder="Password" />
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="right">
+                    <h1>Create a new account</h1>
+                    <form action="#" method="post">
+                        <input required type="email" name="email" id="email" placeholder="Email" />
+                        <input required type="text" name="fullName" id="fullName" placeholder="Full name" />
+                        <input required type="password" name="password" id="password" placeholder="Password" />
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="left">
+                    <h1>Add your email to reset password</h1>
+                    <form action="#" method="post">
+                        <input required type="email" name="email" id="email" placeholder="Email" />
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="actions">
+                <button id="leftSide" type="button">Forgot Password</button>
+                <button id="frontSide" type="button">Login</button>
+                <button id="rightSide" type="button">Sign up</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const square = document.getElementById("square");
+        const frontSide = document.getElementById("frontSide");
+        const rightSide = document.getElementById("rightSide");
+        const leftSide = document.getElementById("leftSide");
 
-			<form class="login-form">
-				<input type="text" placeholder="user name" />
-				<input type="password" placeholder="password" />
-				<button>login</button>
-				<p class="message">Not Registered? <a href="#">Register</a></p>
-				<p class="message b"> <a href="#"> Forgot Password?</a></p>
-			</form>
-		</div>
-	</div>
+        frontSide.addEventListener("click", () => {
+            frontSide.style.display = "none";
+            rightSide.style.display = "block";
+            leftSide.style.display = "block";
+            square.style.transform = "rotate3d(0, 0, 0, 90deg)";
+            document.title = "Login page";
+        });
 
-	<script src='https://code.jquery.com/jquery-3.6.0.min.js'>
-	</script>
+        rightSide.addEventListener("click", () => {
+            rightSide.style.display = "none";
+            frontSide.style.display = "block";
+            leftSide.style.display = "block";
+            square.style.transform = "rotate3d(0, -1, 0, 90deg)";
+            document.title = "Sign up page";
+        });
 
-	<script>
-		$('.message a').click(function () {
-			$('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
-		});
+        leftSide.addEventListener("click", () => {
+            leftSide.style.display = "none";
+            frontSide.style.display = "block";
+            rightSide.style.display = "none";
+            square.style.transform = "rotate3d(0, 1, 0, 90deg)";
+            document.title = "Forgot password page";
+        });
 
-	</script>
 
+    </script>
 </body>
 
-</html>
-	
-</body>
 </html>
