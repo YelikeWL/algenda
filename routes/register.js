@@ -11,21 +11,29 @@ router.get('/', authentication.checkNotAuthenticated, (req, res) => {
 
 router.post('/', authentication.checkNotAuthenticated, async (req, res) => {
     
+
     try {
+        
         const { error } = validate(req.body)
         if(error) return res.status(400).send(error.details[0].message)
+        
+        console.log("hello0")
 
-        let user = User.findOne({ email: req.body.email })
-
+        const user = await User.findOne({ email: req.body.email })
+        console.log("hello1")
         if(user)
             return res.status(400).send(error.details[0].message)
             
-        const hashedPassword = await bcrypt.hash(password, 10)
+        console.log("hello2")
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+
+        console.log("hello")
 
         const new_user = new User({ 
             name: req.body.name,
             email: req.body.email,
-            password: hashedPassword
+            password: hashedPassword,
+            confirm_password:hashedPassword
         })
 
         console.log(new_user)
