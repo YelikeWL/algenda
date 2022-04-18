@@ -20,13 +20,16 @@ initializePassport(
     id => users.find(user => user.id == id) //To change with database
 )
 
+// Database config 
+const connect = require('./modules/db')
+connect()
+
 // Routes
 const indexRouter = require('./routes/index')
 const loginRouter = require('./routes/login')
 const registerRouter = require('./routes/register')
+const userRouter = require('./routes/user')
 
-// Database config (setup here)
-const users = [] 
 
 // Setting variables
 app.set('views', __dirname + '/views')
@@ -54,10 +57,19 @@ app.use(passport.session())
 // Connect Flash
 app.use(flash())
 
+// Global variables
+app.use(function(req, res, next) {
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.error_msg = req.flash('error_msg')
+    res.locals.error = req.flash('error')
+    next()
+})
+
 // Routes
 app.use('/', indexRouter)
 app.use('/login', loginRouter)
 app.use('/register', registerRouter)
+app.use('/user', userRouter)
 
 // app.use(methodOverride('_method'))
 
@@ -70,4 +82,4 @@ app.use('/register', registerRouter)
 
 
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 3000, () => console.log('Server Started'))
