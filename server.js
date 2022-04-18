@@ -14,11 +14,7 @@ const app = express()
 
 // Passport Config
 const initializePassport = require('./modules/passport-config')
-initializePassport(
-    passport,
-    email => users.find(user => user.email == email), //To change with database
-    id => users.find(user => user.id == id) //To change with database
-)
+initializePassport(passport)
 
 // Database config 
 const connect = require('./modules/db')
@@ -29,6 +25,7 @@ const indexRouter = require('./routes/index')
 const loginRouter = require('./routes/login')
 const registerRouter = require('./routes/register')
 const userRouter = require('./routes/user')
+const logoutRouter = require('./routes/logout')
 
 
 // Setting variables
@@ -70,6 +67,7 @@ app.use('/', indexRouter)
 app.use('/login', loginRouter)
 app.use('/register', registerRouter)
 app.use('/user', userRouter)
+app.use('/logout', logoutRouter)
 
 // app.use(methodOverride('_method'))
 
