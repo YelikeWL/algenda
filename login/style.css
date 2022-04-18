@@ -1,96 +1,138 @@
-body{
-	background-color: rgba(0, 100, 200, 0.2);
-	height: 100vh;
-	background-size: cover;
-	background-position: center;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.login-page{
-	width:360px;
-	padding: 10% 0 0;
-	margin: auto;
+body {
+    font-family: "Poppins", sans-serif;
 }
 
-.form{
-	position: relative;
-	z-index: 1;
-	background: #rgba(7, 40, 195, 0.8);
-	max-width: 360px;
-	margin: 0 auto 100px;
-	padding: 45px;
-	text-align: center;
+.main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    color: aliceblue;
+    align-items: center;
+    background-image: url("https://github.com/DwinaTech/public-images/blob/main/background/Nature-Background.jpeg?raw=true");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
 }
 
-.form input{
-	font-family:"Roboto", sans-serif;
-	outline: 1;
-	background: #f2f2f2;
-	width: 100%;
-	border: 0;
-	margin: 0 0 15px;
-	padding: 15px;
-	box-sizing: border-box;
-	font-size: 14px;
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    margin: 0 auto;
+    border-radius: 5px 100px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.form button{
-	font-family:"Roboto", sans-serif;
-	text-transform:uppercase;
-	outline: 0;
-	background: #4CAF50;
-	width: 100%;
-	border: 0;
-	padding: 15px;
-	color: #FFFFFF;
-	font-size: 14px;
-	cursor: pointer;
+#square {
+    display: flex;
+    min-width: 300px;
+    min-height: 300px;
+    margin-bottom: 100px;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transition: all 0.3s ease-in;
+    box-shadow: 3px 3px 5px #012a4a;
 }
 
-.form button:hover,.form button:active{
-	background:#43A047;
+.front,
+.right,
+.left {
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    border-radius: 5px;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #013a63;
+    box-shadow: 3px 3px 5px #012a4a;
 }
 
-.form .message{
-	margin: 15px 0 0;
-	font-size: 12px;
+.front {
+    transform: translateZ(50px);
 }
 
-.form .message a{
-	color: #4CAF50;
-	text-decoration: none;
+.right {
+    transform: rotateY(90deg) translateZ(50px);
 }
 
-.form .register-form{
-	display: none;
+.left {
+    transform: rotateY(-90deg) translateZ(50px);
 }
 
-.form button{
-	font-family:"Roboto", sans-serif;
-	text-transform:uppercase;
-	outline: 0;
-	background: #4CAF50;
-	width: 100%;
-	border: 0;
-	padding: 15px;
-	color: #FFFFFF;
-	font-size: 14px;
-	cursor: pointer;
+.actions button {
+    border: 0;
+    outline: none;
+    font-size: 20px;
+    min-height: 30px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: aqua;
 }
 
-.form button:hover,.form button:active{
-	background:#43A047;
+.container h1 {
+    font-size: 35px;
+    margin-bottom: 15px;
 }
 
-.form .message{
-	margin: 15px 0 0;
-	font-size: 12px;
+.container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.form .message a{
-	color: #4CAF50;
-	text-decoration: none;
+.container form input,
+.container form button,
+.container form h5 {
+    margin-bottom: 15px;
 }
 
-.form .register-form{
-	display: none;
+.container form input {
+    border: 0;
+    padding: 10px 8px;
+    min-height: 40px;
+    font-size: 20px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.container form button {
+    border: 0;
+    padding: 10px 0;
+    outline: none;
+    min-height: 30px;
+    font-size: 20px;
+    border-radius: 4px;
+    background-color: aqua;
+}
+
+#frontSide {
+    display: none;
+}
+
+.container .actions {
+    display: flex;
+}
+
+.container .actions button {
+    margin-right: 10px;
+}
+
+@media (min-width: 600px) {
+    .container {
+        width: 500px;
+        padding: 50px 100px;
+        height: 500px;
+        background-image: linear-gradient(to top, #012a4a, #01497c, #89c2d9);
+    }
 }
